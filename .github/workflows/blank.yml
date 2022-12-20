@@ -48,13 +48,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.TARGET_FRAMEWORK }}
-          path: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}"
+          path: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}/"
       
       - name: Archive Release
         uses: thedoctor0/zip-release@main
         with:
           type: 'zip'
-          path: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}"
+          path: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}/"
           filename: "${{ env.TARGET_FRAMEWORK }}.zip"
       
       - name: Release
