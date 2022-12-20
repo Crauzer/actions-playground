@@ -39,12 +39,10 @@ jobs:
           path: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}"
           filename: "${{ env.LEAGUE_TOOLKIT_PROJECT }}-${{ steps.get_version.outputs.version-without-v }}-${{ env.BUILD_CONFIG }}.zip"
       
-      - name: Create Release
-        uses: ncipollo/release-action@v1
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-          allowUpdates: true
-          omitBodyDuringUpdate: true
-          makeLatest: "latest"
+          tag_name: ${{ steps.create-tag.outputs.tag }}
           prerelease: ${{ steps.get_version.outputs.prerelease != '' }}
-          tag: ${{ steps.create-tag.outputs.tag }}
-          artifacts: "${{ env.LEAGUE_TOOLKIT_PROJECT }}-${{ steps.get_version.outputs.version-without-v}}-${{ env.BUILD_CONFIG }}.zip"
+          append_body: true
+          files: "${{ env.LEAGUE_TOOLKIT_PROJECT }}-${{ steps.get_version.outputs.version-without-v}}-${{ env.BUILD_CONFIG }}.zip"
