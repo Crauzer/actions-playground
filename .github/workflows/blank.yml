@@ -39,7 +39,7 @@ jobs:
         uses: battila7/get-version-action@v2.2.1
 
       - name: Build
-        run: dotnet build $LEAGUE_TOOLKIT_PROJECT --configuration $BUILD_CONFIG --no-restore
+        run: dotnet build $LEAGUE_TOOLKIT_PROJECT --configuration $BUILD_CONFIG --no-restore /p:TargetFramework=${{ env.TARGET_FRAMEWORK }}
         
       - name: Pack
         run: dotnet pack $LEAGUE_TOOLKIT_PROJECT -c $BUILD_CONFIG /p:Version=${{ steps.get_version.outputs.version-without-v }} /p:TargetFramework=${{ env.TARGET_FRAMEWORK }}
