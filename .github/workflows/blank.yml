@@ -51,7 +51,7 @@ jobs:
           path: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}/"
       
       - name: Archive Release
-      - uses: vimtor/action-zip@v1
+        uses: vimtor/action-zip@v1
         with:
           files: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}/"
           dest: "${{ env.TARGET_FRAMEWORK }}.zip"
