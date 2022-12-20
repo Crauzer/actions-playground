@@ -54,7 +54,7 @@ jobs:
         uses: thedoctor0/zip-release@main
         with:
           type: 'zip'
-          path: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}/"
+          directory: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}/"
           filename: "${{ env.TARGET_FRAMEWORK }}.zip"
       
       - name: Release
