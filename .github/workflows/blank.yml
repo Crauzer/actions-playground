@@ -37,8 +37,7 @@ jobs:
         with:
           type: 'zip'
           path: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}"
-          filename: "artifacts/${{ env.LEAGUE_TOOLKIT_PROJECT }}-${{ steps.get_version.outputs.version-without-v != '' }}-{{ env.BUILD_CONFIG }}.zip"
-          exclusions: '*.git* /*node_modules/* .editorconfig'
+          filename: "artifacts/${{ env.LEAGUE_TOOLKIT_PROJECT }}-${{ steps.get_version.outputs.version-without-v }}-{{ env.BUILD_CONFIG }}.zip"
       
       - name: Create Release
         uses: ncipollo/release-action@v1
@@ -48,4 +47,4 @@ jobs:
           makeLatest: true
           prerelease: ${{ steps.get_version.outputs.prerelease != '' }}
           tag: ${{ steps.create-tag.outputs.tag }}
-          artifacts: "artifacts/${{ env.LEAGUE_TOOLKIT_PROJECT }}-${{ steps.get_version.outputs.version-without-v != '' }}-{{ env.BUILD_CONFIG }}.zip"
+          artifacts: "artifacts/${{ env.LEAGUE_TOOLKIT_PROJECT }}-${{ steps.get_version.outputs.version-without-v}}-{{ env.BUILD_CONFIG }}.zip"
