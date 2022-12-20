@@ -37,6 +37,7 @@ jobs:
         with:
           allowUpdates: true
           omitBodyDuringUpdate: true
+          makeLatest: true
           prerelease: ${{ steps.get_version.outputs.prerelease != '' }}
           tag: ${{ steps.create-tag.outputs.tag }}
-          artifacts: "${{ env.LEAGUE_TOOLKIT_PROJECT }}-${{ steps.get_version.outputs.version-without-v }}-${{ github.sha }}"
+          artifacts: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}"
