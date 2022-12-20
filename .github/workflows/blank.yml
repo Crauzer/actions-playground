@@ -51,11 +51,10 @@ jobs:
           path: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}/"
       
       - name: Archive Release
-        uses: thedoctor0/zip-release@main
+      - uses: vimtor/action-zip@v1
         with:
-          type: 'zip'
-          directory: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}/"
-          filename: "${{ env.TARGET_FRAMEWORK }}.zip"
+          files: "src/${{ env.LEAGUE_TOOLKIT_PROJECT }}/bin/${{ env.BUILD_CONFIG }}/${{ env.TARGET_FRAMEWORK }}/"
+          dest: "${{ env.TARGET_FRAMEWORK }}.zip"
       
       - name: Release
         uses: softprops/action-gh-release@v1
